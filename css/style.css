@@ -1,0 +1,111 @@
+/* Reset Geral */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 62.5%;
+    font-family: sans-serif;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    background: rgba(0,0,0,.05);
+}
+
+/* Header */
+#logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#header{ 
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #e7e7e7;
+}
+
+#menu{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+#menu a{
+    display: block;
+    padding: .5rem;
+    font-size: 1rem;
+}
+
+#btn-mobile{
+    display: none;
+}
+
+/* Responsivo */
+@media (max-width: 600px){
+    #menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0;
+        background: #e7e7e7;
+        transition: .6s;
+        z-index: 1000;
+        height: 0;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #nav.active #menu{
+        height: calc(100vh - 70px);
+        visibility: visible;
+    }
+    #menu a{
+        padding: 1rem;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0,0,0,.05);
+    }
+    #btn-mobile{
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    #hamburger{
+        border-top: 2px solid;
+        width: 20px;
+    }
+    #hamburger::after, #hamburger::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+    #nav.active #hamburger{
+        border-top: transparent;
+    }
+    #nav.active #hamburger::before{
+        transform: rotate(135deg);
+    }
+    #nav.active #hamburger::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
